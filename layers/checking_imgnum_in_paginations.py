@@ -35,7 +35,7 @@ def check_imgnum(pagination_content,pagination_path):
 
 def get_pagination_content(content_file, pecha_id, repo):
     pagination_path = content_file.path
-    pagination_content = repo.get_contents(f"./{pagination_path}/pagination.yml")
+    pagination_content = repo.get_contents(f"./{pagination_path}/Pagination.yml")
     pagination_content = pagination_content.decoded_content.decode()
     pagination_content = yaml.safe_load(pagination_content)
     changed = check_imgnum(pagination_content, pagination_path)
