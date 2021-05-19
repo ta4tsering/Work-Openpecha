@@ -97,7 +97,7 @@ def get_new_annotations(pagination_content,pagination_path):
 
 def get_pagination_content(g, content_file, pecha_id, repo):
     pagination_path = content_file.path
-    pagination_content = repo.get_contents(f"./{pagination_path}/pagination.yml")
+    pagination_content = repo.get_contents(f"./{pagination_path}/Pagination.yml")
     pagination_content = pagination_content.decoded_content.decode()
     pagination_content = yaml.safe_load(pagination_content)
     pagination, vol_num = get_new_annotations(pagination_content, pagination_path)
@@ -115,7 +115,7 @@ def get_new_layers(g, pecha_id):
             del pagination_content['annotations']
             pagination_content[f'annotations'] = pagination
             content_yml = yaml.safe_dump(pagination_content, default_flow_style=False, sort_keys=False,  allow_unicode=True)
-            Path(f"./{pecha_id}/{pecha_id}.opf/layers/{vol_num}/pagination.yml").write_text(content_yml, encoding='utf-8')
+            Path(f"./{pecha_id}/{pecha_id}.opf/layers/{vol_num}/Pagination.yml").write_text(content_yml, encoding='utf-8')
 
 
 def get_branch(repo, branch):
